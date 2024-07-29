@@ -1,5 +1,21 @@
+Build
+Clone the dev-sci branch of the authoritative repository:
+git clone -b dev-sci https://github.com/NOAA-EMC/rrfs-workflow
+Move to the sorc directory:
+cd rrfs-workflow/sorc
+Build the RRFS workflow:
+./app_build.sh --extrn --nogtg --noifi
+The above command is equal to:
+
+./manage_externals/checkout_externals
+./app_build.sh -p=[machine]
+where [machine] is wcoss2, hera, jet, orion, or hercules. The --nogtg and --noifi flags avoid compilation of GTG and IFI components respectively, which only select users can compile.
+
+Move to the home directory (rrfs-workflow):
+cd ..  
 
 Difference with EMC’s dev-sci branch: 
+
 1) rrfs-workflow/parm/FV3LAM_wflow.xml
 (dependencies for the process smoke task)
 2) rrfs-workflow/scripts/exrrfs_run_fcst.sh
