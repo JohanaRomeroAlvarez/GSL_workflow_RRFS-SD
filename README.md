@@ -1,9 +1,3 @@
-DG GSL_workflow_RRFS-SD
-GSL workflow for retrospective simulations based on EMC's workflow for RRFSv1 updated on July 2 2024
-Build
-1) Clone the dev-retro branch:
-git clone -b dev-retro 
-2) Move to the sorc directory:
 
 Difference with EMC’s dev-sci branch: 
 1) rrfs-workflow/parm/FV3LAM_wflow.xml
