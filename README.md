@@ -1,6 +1,7 @@
-Build
-Clone the dev-sci branch of the authoritative repository:
-git clone -b dev-sci https://github.com/NOAA-EMC/rrfs-workflow
+Build (from EMC's https://github.com/NOAA-EMC/rrfs-workflow)
+
+Clone the main branch
+git clone -b main 
 Move to the sorc directory:
 cd rrfs-workflow/sorc
 Build the RRFS workflow:
