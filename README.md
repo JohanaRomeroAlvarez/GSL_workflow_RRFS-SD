@@ -66,5 +66,9 @@ rrfs-workflow/ush/fire_emiss_tools.py (handles two fire emission scenarios: same
 rrfs-workflow/ush/interp_tools.py (handles two fire emission scenarios: same-day emissions and forecast)
 ---
 
+## Example of config.sh file for an hourly cycling
+![Example of config.sh file for hourly cycling](https://photos.google.com/u/2/photo/AF1QipNxr34PuDi06V3ORe4grFJ2pxVMDQxirnYolng)
+
+
 
 
