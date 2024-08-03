@@ -397,6 +397,7 @@ if [ "${DO_SMOKE_DUST}" = "TRUE" ]; then
     else
        ln -snf ${FIX_SMOKE_DUST}/${PREDEF_GRID_NAME}/dummy_24hr_smoke.nc ${run_dir}/INPUT/SMOKE_RRFS_data.nc
        echo "WARNING: Smoke file is not available, use dummy_24hr_smoke.nc instead"
+    fi   
   fi
 fi
 #
