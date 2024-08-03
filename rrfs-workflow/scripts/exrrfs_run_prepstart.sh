@@ -753,7 +753,7 @@ import os
 
 def populate_data(data, target_shape):
     """
-    Extracted variables need to match the target shape, so we first populate it into a zero array.
+    Extracted variables need to match the target shape so we first populating it into a zero array.
 
     Parameters:
     data (np.ndarray): The extracted data to be adjusted.
@@ -779,11 +779,11 @@ def main():
 
     # Open the source file and extract data
     data_to_extract = xr.open_dataset(source_file)
-    smoke_2_add = data_to_extract['smoke'][0, :, :, :].values
-    dust_2_add = data_to_extract['dust'][0, :, :, :].values
-    coarsepm_2_add = data_to_extract['coarsepm'][0, :, :, :].values
+    smoke_2_add = data_to_extract['smoke'][0,:,:, :]
+    dust_2_add = data_to_extract['dust'][0,:,:, :]
+    coarsepm_2_add = data_to_extract['coarsepm'][0,:, :, :]
 
-    print('Max values in source file:', smoke_2_add.max(), dust_2_add.max(), coarsepm_2_add.max())
+    print('Max values in source file:', smoke_2_add.max())
 
     # Open the target file and load it into memory
     file_input = xr.open_dataset(target_file).load()
@@ -798,11 +798,11 @@ def main():
     lon_dim = file_input.dims['lon']
 
     # Populate the extracted data to match the target shape
-    smoke_2_add_populated = populate_data(smoke_2_add, (lev_dim, lat_dim, lon_dim))
-    dust_2_add_populated = populate_data(dust_2_add, (lev_dim, lat_dim, lon_dim))
-    coarsepm_2_add_populated = populate_data(coarsepm_2_add, (lev_dim, lat_dim, lon_dim))
+    #smoke_2_add_populated = populate_data(smoke_2_add, (lev_dim, lat_dim, lon_dim))
+    #dust_2_add_populated = populate_data(dust_2_add, (lev_dim, lat_dim, lon_dim))
+    #coarsepm_2_add_populated = populate_data(coarsepm_2_add, (lev_dim, lat_dim, lon_dim))
 
-    print('Max values in populated data:', smoke_2_add_populated.max(), dust_2_add_populated.max(), coarsepm_2_add_populated.max())
+    #print('Max values in populated data:', smoke_2_add_populated.max(), dust_2_add_populated.max(), coarsepm_2_add_populated.max())
 
     # Create new data arrays filled with zeros
     smoke_zero = xr.DataArray(np.zeros((lev_dim, lat_dim, lon_dim)), dims=['lev', 'lat', 'lon'], attrs={'units': 'ug/kg'})
@@ -812,12 +812,12 @@ def main():
     # Assign the data arrays to the dataset, initially with zeros
     file_input['smoke'] = smoke_zero
     file_input['dust'] = dust_zero
-    file_input['coarsepm'] = coarsepm_zero
+    file_input['coarsepm']= coarsepm_zero
 
     # Populate the variables with the adjusted data
-    file_input['smoke'][:, :, :] = smoke_2_add_populated
-    file_input['dust'][:, :, :] = dust_2_add_populated
-    file_input['coarsepm'][:, :, :] = coarsepm_2_add_populated
+    file_input['smoke'][1:66,:,:] = smoke_2_add
+    file_input['dust'][1:66,:,:] = dust_2_add
+    file_input['coarsepm'][1:66,:,:] = coarsepm_2_add
 
     # Save the modified dataset back to the file
     file_input.to_netcdf(target_file, mode='w')
