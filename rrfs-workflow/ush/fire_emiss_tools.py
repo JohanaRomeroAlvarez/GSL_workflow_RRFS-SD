@@ -5,7 +5,7 @@ from datetime import datetime
 from netCDF4 import Dataset
 import interp_tools as i_tools
 
-#Compute average FRP from raw RAVE for the previous 24 hours 
+#Compute average FRP from raw RAVE for the previous 24 hours
 def averaging_FRP(ebb_dcycle, fcst_dates, cols, rows, intp_dir, rave_to_intp, veg_map, tgt_area, beta, fg_to_ug, to_s):
     base_array = np.zeros((cols*rows))
     frp_daily = base_array

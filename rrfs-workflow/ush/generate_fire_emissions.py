@@ -29,7 +29,7 @@ def generate_emiss_workflow(staticdir, ravedir, newges_dir, predef_grid, ebb_dcy
    to_s = 3600
    current_day = os.environ.get("CDATE")
    nwges_dir = os.environ.get("NWGES_DIR")    
-   vars_emis = ["FRP_MEAN","FRE"]
+   vars_emis = ["FRP_MEAN","FRE","PM25"]
    cols, rows = (2700, 3950) if predef_grid == 'RRFS_NA_3km' else (1092, 1820) 
    print('PREDEF GRID',predef_grid,'cols,rows',cols,rows)
    print('WARNING, EBB_DCYCLE set to', ebb_dcycle, 'emissions are comes from same day satellite obs')   
@@ -44,6 +44,7 @@ def generate_emiss_workflow(staticdir, ravedir, newges_dir, predef_grid, ebb_dcy
    #Setting the directories
    veg_map = staticdir+'/veg_map.nc' 
    RAVE= ravedir
+   print(RAVE)
    rave_to_intp = predef_grid+"_intp_"  
    intp_dir = newges_dir
    grid_in = staticdir+'/grid_in.nc'
@@ -105,4 +106,4 @@ if __name__ == '__main__':
         print('Successful Completion. Bye!')
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         print('')
-    
+        print()
