@@ -16,9 +16,9 @@ def date_range(current_day, ebb_dcycle):
     
     if ebb_dcycle == 1:
        print('Find  RAVE for ebb_dcyc 1')
-       #fcst_dates = pd.date_range(start=fcst_datetime, periods=24, freq='H').strftime("%Y%m%d%H")
+       fcst_dates = pd.date_range(start=fcst_datetime, periods=24, freq='H').strftime("%Y%m%d%H")
        #start_datetime = fcst_datetime - dt.timedelta(days=1) 
-       fcst_dates = pd.date_range(start=start_datetime, periods=24, freq='H').strftime("%Y%m%d%H")
+       #fcst_dates = pd.date_range(start=start_datetime, periods=24, freq='H').strftime("%Y%m%d%H")
     else:   
        start_datetime = fcst_datetime - dt.timedelta(days=1, hours=1)
     
