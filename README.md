@@ -1,6 +1,6 @@
 # RRFS Workflow Build Instructions
 
-This repository provides instructions for building the GSL RRFS-SD workflow based on EMC's rrfs-workflow repository (last checked, July 25).
+This repository provides instructions for building the GSL RRFS-SD workflow based on EMC's rrfs-workflow repository (last checked, September 28, 2024).
 
 ---
 
@@ -10,7 +10,7 @@ Clone the main branch of the repository:
 ---
 ```sh
 ---
-git clone -b main https://github.com/NOAA-EMC/rrfs-workflow
+git clone -b main https://github.com/JohanaRomeroAlvarez/GSL_workflow_RRFS-SD.git
 ---
 
 ## Building the RRFS Workflow
